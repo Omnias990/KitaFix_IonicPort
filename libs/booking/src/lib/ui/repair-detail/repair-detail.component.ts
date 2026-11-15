@@ -784,8 +784,22 @@ const RATING_WORDS = ['', 'Poor', 'Fair', 'Good', 'Great', 'Excellent'];
         flex: none;
         margin-top: 0.1rem;
         color: var(--kf-warn);
+     }
+      ion-modal.kf-detail {
+        --width: min(94vw, 560px);
+        --height: min(92vh, 860px);
+        --border-radius: 32px;
+        --box-shadow: var(--kf-shadow-lift);
+        --backdrop-opacity: 0.45;
+      }
+
+      ion-modal.kf-detail::part(content) {
+        border-radius: 32px;
+        overflow: hidden;
+        background: var(--kf-bg);
       }
     `,
+    
   ],
 })
 export class RepairDetailComponent {

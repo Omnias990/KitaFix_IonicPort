@@ -262,6 +262,7 @@ h1 {
     color: var(--kf-danger);
     font-weight: 600;
   }
+
 }
 
 .skeleton-card {
@@ -356,7 +357,227 @@ h1 {
   }
 }
 
-/* Soft rounded corners for the cancel alert */
-::ng-deep .soft-modal {
-  --border-radius: 28px;
+/* ------------------------------------------------------------ cancel alert */
+::ng-deep ion-alert.kf-danger-alert {
+  --background: var(--kf-surface);
+  --max-width: 360px;
+  --backdrop-opacity: 0.45;
+
+  .alert-wrapper {
+    border: 1px solid var(--kf-line);
+    border-radius: 32px;
+    box-shadow: var(--kf-shadow-lift);
+    overflow: hidden;
+    padding: 2.2rem 1.9rem 1.8rem;
+  }
+
+  .alert-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    text-align: center;
+  }
+
+  .alert-title {
+    margin: 0;
+    color: var(--kf-text);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.5rem;
+    color: var(--kf-danger);
+  }
+
+  .alert-sub-title {
+    margin: 0.6rem 0 0;
+    padding: 0.25rem 0.8rem;
+    border-radius: 999px;
+    background: var(--kf-surface-2);
+    color: var(--kf-muted);
+    font-size: 0.74rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+  }
+
+  .alert-message {
+    padding: 1.1rem 0.4rem 0.6rem;
+    color: var(--kf-muted);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  /* Confirm checkbox */
+  .alert-input-group,
+  .alert-checkbox-group {
+    margin-top: 0.8rem;
+    padding: 0;
+    border: 0;
+  }
+
+  .alert-tappable {
+    height: auto;
+    min-height: 0;
+    padding: 0.9rem 1rem;
+    border-radius: 18px;
+    background: var(--kf-surface-2);
+    contain: none;
+  }
+
+  .alert-checkbox-icon {
+    flex: none;
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    border: 2px solid var(--kf-muted);
+    border-radius: 7px;
+    background: transparent;
+    margin-right: 1.5rem;
+  }
+
+  .alert-checkbox-label {
+    flex: 1;
+    padding: 0 0 0 0.8rem !important;
+    color: var(--kf-text);
+    font-size: 0.84rem;
+    font-weight: 500;
+    text-align: left;
+    white-space: normal;
+  }
+
+  .alert-tappable[aria-checked='true'] {
+    background: color-mix(in srgb, var(--kf-danger) 10%, var(--kf-surface));
+
+    .alert-checkbox-icon {
+      border-color: var(--kf-danger);
+      background: var(--kf-danger);
+    }
+    .alert-checkbox-inner {
+      border-color: #fff;
+      margin-left: 0.2rem;
+      margin-top: 0.1rem;
+    }
+  }
+
+  /* Centered, compact buttons */
+  .alert-button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: 1.5rem;
+    padding: 0;
+  }
+  .alert-button {
+    width: fit-content;
+    min-width: 220px;
+    min-height: 48px;
+    margin: 0;
+    padding: 0 2rem;
+    border: 0;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-transform: none;
+    transition: transform var(--kf-fast) var(--kf-ease);
+
+    .alert-button-inner {
+      flex: 1;
+      width: 100%;
+      min-height: inherit;
+      margin: 0;
+      padding: 0 1.5rem;
+      justify-content: center;
+      text-align: center;
+    }
+    &:active {
+      transform: scale(0.97);
+    }
+
+  }
+
+  .alert-button.kf-keep {
+    background: linear-gradient(135deg, var(--kf-hero-from), var(--kf-hero-to));
+    color: var(--kf-on-hero);
+    box-shadow: 0 8px 18px -8px var(--kf-accent);
+  }
+
+  .alert-button.kf-destroy {
+    min-height: 42px;
+    background: transparent;
+    color: var(--kf-danger);
+
+    &:active {
+      background: color-mix(in srgb, var(--kf-danger) 12%, transparent);
+    }
+  }
 }
+
+
+/* ------------------------------------------------------- reschedule modal */
+::ng-deep ion-modal.kf-modal {
+  --width: min(92vw, 480px);
+  --border-radius: 32px;
+  --box-shadow: var(--kf-shadow-lift);
+  --backdrop-opacity: 0.45;
+  --height: max-content;
+
+  &::part(content) {
+    border-radius: 32px;
+    overflow: hidden;
+  }
+
+  ion-header {
+    box-shadow: none;
+    &::after {
+      display: none;
+    }
+  }
+
+  ion-toolbar {
+    --background: var(--kf-surface);
+    --border-width: 0;
+    --padding-top: 0.9rem;
+    --padding-bottom: 0.4rem;
+    --padding-start: 1.6rem;
+    --padding-end: 1.2rem;
+  }
+
+  ion-title {
+    padding: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  ion-content {
+    --background: var(--kf-surface);
+    --padding-start: 1.6rem;
+    --padding-end: 1.6rem;
+    --padding-top: 1rem;
+    --padding-bottom: 1.8rem;
+  }
+
+  ion-datetime {
+    margin: 1rem auto;
+    border-radius: 24px;
+    --background: var(--kf-surface-2);
+  }
+
+  ion-select {
+    min-height: 56px;
+    margin-top: 0.8rem;
+    padding: 0 1rem;
+    border-radius: 16px;
+    background: var(--kf-surface-2);
+  }
+
+  ion-button {
+    --border-radius: 999px;
+    min-height: 50px;
+    font-weight: 700;
+    text-transform: none;
+  }
+}
+

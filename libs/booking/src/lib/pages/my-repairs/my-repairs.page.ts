@@ -219,13 +219,11 @@ export class MyRepairsPage implements OnInit {
   async confirmCancel(repair: Repair): Promise<void> {
     const alert = await this.alert.create({
       cssClass: ['kf-danger-alert', 'soft-modal'],
-      header: 'Warning: cancel this repair?',
-      subHeader: `${repair.device_brand} ${repair.device_model} - ${formatBookingDate(repair.booking_date)}`,
+      header: 'Cancel this repair?',
+      subHeader: `${repair.device_brand} ${repair.device_model} · ${formatBookingDate(repair.booking_date)}`,
       message:
-        'This action is <b>permanent and cannot be undone</b>.<br><br>' +
-        '- Your booked slot is released right away and may be taken by someone else.<br>' +
-        '- A repair that already started will be stopped.<br>' +
-        '- You will have to book again from the start.',
+        'Your slot is released right away and may be taken by someone else. ' +
+        'This can\'t be undone, so you\'d need to book again from scratch.',
       inputs: [
         {
           type: 'checkbox',

@@ -145,7 +145,6 @@ function dialPoint(angle: number): { x: number; y: number } {
     IonButton,
     IonContent,
     IonDatetime,
-    IonFooter,
     IonHeader,
     IonIcon,
     IonInput,

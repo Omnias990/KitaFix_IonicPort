@@ -904,6 +904,10 @@ ion-datetime {
   font-weight: 700;
   text-transform: none;
   letter-spacing: 0;
+
+  .inner-button {
+
+  }
 }
 .back-action {
   --background: var(--kf-surface);
@@ -1170,6 +1174,7 @@ ion-datetime {
   align-items: stretch;
   gap: 0.2rem;
   width: 100%;
+
 }
 
 @keyframes draw {
@@ -1208,4 +1213,8 @@ ion-datetime {
     stroke-dashoffset: 0;
     animation: none;
   }
+}
+
+.primary-action::part(native) {
+  padding: 0.75rem;   // top/bottom | left/right, around the text
 }

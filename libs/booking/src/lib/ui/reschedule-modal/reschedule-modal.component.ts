@@ -43,7 +43,7 @@ import { RepairsService } from '../../services/repairs.service';
     IonToolbar,
   ],
   template: `
-    <ion-modal [isOpen]="isOpen()" (didDismiss)="isOpen.set(false)">
+    <ion-modal class="kf-modal" [isOpen]="isOpen()" (didDismiss)="isOpen.set(false)">
       <ng-template>
         <ion-header>
           <ion-toolbar>
